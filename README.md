@@ -12,13 +12,12 @@
 composer create-project symfony/skeleton ./ "4.4.*"
 ```
 
-### maker and annoations bundle installation
+### maker  bundle installation
 
 ----
 
 ```
 composer require maker
-composer require doctrine/annotations
 ```
 
 ### Create ToDoListController
@@ -134,7 +133,8 @@ $ bin/console make:entity
 ```
 ```
 Note:
-we faced this error while make this project: "Class Doctrine\Persistence\Mapping\Driver\Annotation Driver does not exist"
+we faced this error while make this project:
+"Class Doctrine\Persistence\Mapping\Driver\Annotation Driver does not exist"
 We deal with it by deleting inflector and persistence as they're deprecated! then deleted composer.lock
 we run: composer install, everything worked fine!
 this tweak resolved also this error:
@@ -148,12 +148,12 @@ this tweak resolved also this error:
 $ bin/console make:migration
 
 ```
-## Creating Database Table using migration file
+### Creating Database Table using migration file
 
 ---
 ```
 $ bin/console doctrine:migrations:migrate
 
  WARNING! You are about to execute a migration in database "todo" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
- > 
+ >
 ```
