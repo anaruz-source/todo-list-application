@@ -135,7 +135,7 @@ $ bin/console make:entity
 Note:
 we faced this error while make this project:
 "Class Doctrine\Persistence\Mapping\Driver\Annotation Driver does not exist"
-We deal with it by deleting inflector and persistence as they're deprecated! then deleted composer.lock
+We deal with it by deleting inflector it's deprecated! then deleted composer.lock
 we run: composer install, everything worked fine!
 this tweak resolved also this error:
 [Symfony\Component\Console\Exception\LogicException] An option named "connection" already exists.
@@ -156,4 +156,14 @@ $ bin/console doctrine:migrations:migrate
 
  WARNING! You are about to execute a migration in database "todo" that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
  >
+```
+
+### More updates to website!
+ConrollerToDoListController
+::create method updated with necessary code persist tasks!
+::switchSatus to update status of a task
+::delete to delete a task.
+in delete method parameter converter is used, to allow this, install
+```
+$ composer require sensio/framework-extra-bundle
 ```

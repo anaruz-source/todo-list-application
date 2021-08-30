@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -13,15 +15,31 @@ class ToDoListController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('index.html.twig');
+        $tasks = $this->getDoctrine()->getRepository(Task::class)->findBy([], ['id' => 'DESC']);
+
+        return $this->render('index.html.twig', ['tasks' => $tasks]);
     }
 
     /**
      * @Route("/create", name="create_task", methods={"POST"})
      */
-    public function create(): Response
+    public function create(Request $request): Response
     {
-        exit('to do: create a task');
+        $title = trim($request->request->get('title'));
+        if (empty($title)) {
+            return $this->redirectToRoute('index');
+        }
+
+        $manager = $this->getDoctrine()->getManager();
+
+        $task = new Task();
+
+        $task->setTitle($title);
+
+        $manager->persist($task);
+        $manager->flush();
+
+        return $this->redirectToRoute('index');
     }
 
     /**
@@ -29,14 +47,25 @@ class ToDoListController extends AbstractController
      */
     public function switchStatus($id): Response
     {
-        exit('to do: switch status of the task which as id '.$id);
+        $manager = $this->getDoctrine()->getManager();
+        $task = $this->getDoctrine()->getRepository(Task::class)->find($id);
+        $task->setStatus(!$task->getStatus());
+
+        $manager->flush();
+
+        return $this->redirectToRoute('index');
     }
 
     /**
      * @Route("/delete/{id}", name="delete_task")
      */
-    public function delete($id): Response
+    public function delete(Task $id): Response // param converter to object Task
     {
-        exit('to do: delte  the task which has id '.$id);
+        $manager = $this->getDoctrine()->getManager();
+
+        $manager->remove($id);
+        $manager->flush();
+
+        return $this->redirectToRoute('index');
     }
 }

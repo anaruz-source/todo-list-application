@@ -84,15 +84,6 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
-    "koriym/attributes": {
-        "version": "1.0.3"
-    },
-    "koriym/null-object": {
-        "version": "1.0.0"
-    },
-    "koriym/printo": {
-        "version": "1.0.1"
-    },
     "laminas/laminas-code": {
         "version": "4.4.2"
     },
@@ -111,14 +102,17 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
-    "ray/aop": {
-        "version": "2.10.6"
-    },
-    "ray/di": {
-        "version": "2.12.1"
-    },
-    "ray/doctrine-orm-module": {
-        "version": "1.5.0"
+    "sensio/framework-extra-bundle": {
+        "version": "5.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.2",
+            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
+        },
+        "files": [
+            "config/packages/sensio_framework_extra.yaml"
+        ]
     },
     "symfony/apache-pack": {
         "version": "1.0",
