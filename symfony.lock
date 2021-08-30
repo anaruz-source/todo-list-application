@@ -57,9 +57,6 @@
             "migrations/.gitignore"
         ]
     },
-    "doctrine/doctrine1": {
-        "version": "v1.2.5"
-    },
     "doctrine/event-manager": {
         "version": "1.1.1"
     },
@@ -81,14 +78,20 @@
     "doctrine/persistence": {
         "version": "2.2.2"
     },
-    "doctrine/reflection": {
-        "version": "1.2.2"
+    "doctrine/sql-formatter": {
+        "version": "1.1.1"
     },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
-    "jdorn/sql-formatter": {
-        "version": "v1.2.17"
+    "koriym/attributes": {
+        "version": "1.0.3"
+    },
+    "koriym/null-object": {
+        "version": "1.0.0"
+    },
+    "koriym/printo": {
+        "version": "1.0.1"
     },
     "laminas/laminas-code": {
         "version": "4.4.2"
@@ -107,6 +110,15 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "ray/aop": {
+        "version": "2.10.6"
+    },
+    "ray/di": {
+        "version": "2.12.1"
+    },
+    "ray/doctrine-orm-module": {
+        "version": "1.5.0"
     },
     "symfony/apache-pack": {
         "version": "1.0",
@@ -270,9 +282,6 @@
     },
     "symfony/stopwatch": {
         "version": "v4.4.27"
-    },
-    "symfony/templating": {
-        "version": "v4.2.12"
     },
     "symfony/translation-contracts": {
         "version": "v2.4.0"
