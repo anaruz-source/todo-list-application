@@ -9,13 +9,34 @@ use Symfony\Component\Routing\Annotation\Route;
 class ToDoListController extends AbstractController
 {
     /**
-     * @Route("/to/do/list", name="to_do_list")
+     * @Route("/", name="index")
      */
     public function index(): Response
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ToDoListController.php',
-        ]);
+        return $this->render('index.html.twig');
+    }
+
+    /**
+     * @Route("/create", name="create_task", methods={"POST"})
+     */
+    public function create(): Response
+    {
+        exit('to do: create a task');
+    }
+
+    /**
+     * @Route("/switch-status/{id}", name="switch_status")
+     */
+    public function switchStatus($id): Response
+    {
+        exit('to do: switch status of the task which as id '.$id);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="delete_task")
+     */
+    public function delete($id): Response
+    {
+        exit('to do: delte  the task which has id '.$id);
     }
 }
